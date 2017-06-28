@@ -6,17 +6,17 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 21:56:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/27 22:00:05 by irhett           ###   ########.fr       */
+/*   Updated: 2017/06/27 22:20:07 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TRASH_GRID_H
 # define TRASH_GRID_H
 
-# include "SPI.h"
-# include "Adafruit_WS2801.h"
+//# include "SPI.h"
+//# include "Adafruit_WS2801.h"
 
-uint8_t dataPin  = 5;
+/*uint8_t dataPin  = 5;
 uint8_t clockPin = 6;
 
 uint16_t rows = 16;
@@ -32,7 +32,7 @@ typedef struct  s_grid
 }               t_grid;
 
 t_grid		grid;
-
+*/
 /*uint32_t Color(byte r, byte g, byte b)
 {
 	uint32_t c;
@@ -62,5 +62,7 @@ uint32_t Wheel(byte WheelPos)
 		return (Color(0, WheelPos * 3, 255 - WheelPos * 3));
 	}
 }*/
+
+void	function(void);
 
 #endif
