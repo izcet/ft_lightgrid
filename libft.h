@@ -6,7 +6,7 @@
 /*   By: irhett <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 22:02:27 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/22 23:13:51 by irhett           ###   ########.fr       */
+/*   Updated: 2017/06/28 23:54:38 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void				ft_putnbr_fd(int nb, int fd);
 void				ft_putstr(char *str);
 void				ft_putstr_fd(char const *s, int fd);
 
-char				*ft_strcat(char *restrict s1, const char *restrict s2);
+char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);

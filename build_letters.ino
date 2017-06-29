@@ -6,13 +6,13 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 21:44:33 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/28 22:41:37 by irhett           ###   ########.fr       */
+/*   Updated: 2017/06/28 23:56:55 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "trash_grid.h"
 
-int				letter_cap_pos(char c)
+int				letter_pos(char c)
 {
 	if (ft_isupper(c))
 		return (c - 'A');
@@ -23,7 +23,9 @@ int				letter_cap_pos(char c)
 }
 
 static t_letter	**build_lowercase_helper(t_letter **t)
-{
+{t_grid 			grid;
+
+
 	letter_l(t);
 	letter_m(t);
 	letter_n(t);
@@ -97,4 +99,3 @@ t_letter		**build_uppercase(void)
 	letter_cap_j(t);
 	return (build_uppercase_helper(t));
 }
-

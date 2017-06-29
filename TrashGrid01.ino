@@ -12,7 +12,7 @@
 
 #include "SPI.h"
 #include "Adafruit_WS2801.h"
-#include "trash_grid.h"
+#include "./trash_grid.h"
 
 uint8_t dataPin = 5;
 uint8_t clockPin = 6;
@@ -23,20 +23,143 @@ uint16_t cols = 8;
 Adafruit_WS2801 strip; // = Adafruit_WS2801(rows, cols, dataPin, clockPin);
 
 
-void setup()
+void	setup()
 {
 	strip = Adafruit_WS2801(rows, cols, dataPin, clockPin);
 	strip.begin();
 	strip.show();
 }
 
-
-void loop()
+void	loop()
 {
-	drawX(16, 8, 50);
-	bounce(7, 6, 50);
+//	drawX(16, 8, 50);
+//	bounce(7, 6, 50);
+	string_banner_wheel("test string please ignore");
 }
 
+void	redraw(t_grid *grid)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	while (x < grid->width)
+	{
+		y = 0;
+		while (y < grid->height)
+		{
+			strip.setPixelColor(x, y, grid->pixels[x][y]);
+			y++;
+		}
+		x++;
+	}
+	strip.show();
+	delay(10);
+}
+
+void	draw_blank_line(t_grid *grid)
+{
+	int		i;
+
+	i = 0;
+	while (i < grid->height)
+	{
+		grid->pixels[grid->width - 1][i] = 0;
+		i++;
+	}
+}
+
+void	string_banner_wheel(char *str)
+{
+	unsigned int	len;
+	byte			color;
+	unsigned int	i;
+	byte			row;
+	byte			col;
+	t_grid			*grid;
+	t_letter		**upper;
+	t_letter		**lower;
+	int				cl;
+	int				cli;
+	unsigned int	max;
+
+
+	grid = init_grid(16, 8);
+	upper = build_uppercase();
+	lower = build_lowercase();
+	color = 0;
+
+	max = 16;
+	i = 0;
+	len = ft_strlen(str);
+	while (i < len)
+	{
+		if (ft_isupper(str[i]))
+			max += upper[letter_pos(str[i])]->width;
+		else if (ft_islower(str[i]))
+			max += lower[letter_pos(str[i])]->width;
+		max++;
+		i++;
+	}
+
+	cl = 0;
+	cli = 0;
+	i = 0;
+	while (i < max)
+	{
+		col = -1;
+		while (++col < 15)
+		{
+			row = -1;
+			while (++row < 8)
+				grid->pixels[col][row] = grid->pixels[col + 1][row];
+		}
+		if ((i == 0) || (i > (max - 16)))
+			draw_blank_line(grid);
+		else
+		{
+			if (letter_pos(str[cl]) < 0)
+			{
+				cl++;
+				cli = 0;
+				draw_blank_line(grid);
+			}
+			else if (cli < 0)
+			{
+				draw_blank_line(grid);
+				cli = 0;
+			}
+			else if (ft_isupper(str[cl]))
+			{
+				row = -1;
+				while (++row < 8)
+					grid->pixels[col][row] = upper[letter_pos(str[cl])]->dots[cli][row] * Wheel(color++);
+				cli++;
+				if (cli == upper[letter_pos(str[cl])]->width)
+				{
+					cl++;
+					cli = -1;
+				}
+			}
+			else
+			{
+				row = -1;
+				while (++row < 8)
+					grid->pixels[col][row] = lower[letter_pos(str[cl])]->dots[cli][row] * Wheel(color++);
+				cli++;
+				if (cli == lower[letter_pos(str[cl])]->width)
+				{
+					cl++;
+					cli = -1;
+				}
+			}
+		}
+		redraw(grid);
+		i++;
+	}
+	del_letters(upper, lower);
+	del_grid(grid);
+}
 
 
 
