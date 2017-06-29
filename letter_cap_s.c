@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   letter_O.c                                         :+:      :+:    :+:   */
+/*   letter_cap_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/28 22:16:19 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/28 22:16:20 by irhett           ###   ########.fr       */
+/*   Created: 2017/06/28 22:48:01 by irhett            #+#    #+#             */
+/*   Updated: 2017/06/28 22:48:30 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "trash_grid.h"
 
-void	letter_O(t_letter **l)
+void	letter_cap_s(t_letter **l)
 {
 	int		etter;
 	int		i;
 
-	etter = letter_pos('O');
+	etter = letter_pos('S');
 	l[etter] = (t_letter*)malloc(sizeof(t_letter));
 	l[etter]->width = 6;
 	l[etter]->dots = (char**)malloc(sizeof(char*) * 8);
@@ -28,13 +28,13 @@ void	letter_O(t_letter **l)
 	l[etter]->dots[2] = ft_strnew(6 + 1);
 	ft_memcpy(l[etter]->dots[2], "100001", 6);
 	l[etter]->dots[3] = ft_strnew(6 + 1);
-	ft_memcpy(l[etter]->dots[3], "100001", 6);
+	ft_memcpy(l[etter]->dots[3], "010000", 6);
 	l[etter]->dots[4] = ft_strnew(6 + 1);
-	ft_memcpy(l[etter]->dots[4], "100001", 6);
+	ft_memcpy(l[etter]->dots[4], "001100", 6);
 	l[etter]->dots[5] = ft_strnew(6 + 1);
-	ft_memcpy(l[etter]->dots[5], "100001", 6);
+	ft_memcpy(l[etter]->dots[5], "000010", 6);
 	l[etter]->dots[6] = ft_strnew(6 + 1);
-	ft_memcpy(l[etter]->dots[6], "100001", 6);
+	ft_memcpy(l[etter]->dots[6], "000001", 6);
 	l[etter]->dots[7] = ft_strnew(6 + 1);
 	ft_memcpy(l[etter]->dots[7], "100001", 6);
 }

@@ -4,7 +4,8 @@ DIR=alphabet
 
 function handle_letter() {
 	letter=$1
-	file="letter_$letter.c"
+	file=$2
+	func=$3
 	width=$(head -1 $DIR/$letter)
 	length=8
 	w=0;
@@ -13,7 +14,7 @@ function handle_letter() {
 	echo "starting letter $letter"
 
 	echo "#include \"trash_grid.h\"\n" >> $file
-	echo "void\tletter_$letter(t_letter **l)\n{" >> $file
+	echo "void\tletter_$func(t_letter **l)\n{" >> $file
 	echo "\tint\t\tetter;" >> $file
 	echo "\tint\t\ti;" >> $file
 	echo "" >> $file
@@ -30,18 +31,18 @@ function handle_letter() {
 	echo "}" >> $file
 
 
-	echo "void\t\t\tletter_${letter}(t_letter **l);" >> trash_grid.h
-	sleep .1
+	echo "void\t\t\tletter_${func}(t_letter **l);" >> trash_grid.h
 }
 
 VAR="A" #_
 while [ "$VAR" != "_" ] ; do
-	handle_letter $VAR
+	lower=$(echo $VAR | tr '[:upper:]' '[:lower:]')
+	handle_letter $VAR "letter_cap_$lower.c" "cap_$lower" 
 	VAR=$(echo $VAR | tr "0-9A-Z" "1-9A-Z_")
 done
 
 VAR="a" #_
 while [ "$VAR" != "_" ] ; do
-	handle_letter $VAR
+	handle_letter $VAR "letter_$VAR.c" $VAR
 	VAR=$(echo $VAR | tr "0-9a-z" "1-9a-z_")
 done

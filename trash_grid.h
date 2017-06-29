@@ -6,7 +6,7 @@
 /*   By: irhett <irhett@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/28 21:05:22 by irhett            #+#    #+#             */
-/*   Updated: 2017/06/28 22:17:52 by irhett           ###   ########.fr       */
+/*   Updated: 2017/06/28 22:49:19 by irhett           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,38 @@ typedef struct	s_letter
 t_grid 			grid;
 
 
+t_letter		**build_uppercase(void);
+t_letter		**build_lowercase(void);
+
 void			function(void);
 
 
-void			letter_A(t_letter **l);
-void			letter_B(t_letter **l);
-void			letter_C(t_letter **l);
-void			letter_D(t_letter **l);
-void			letter_E(t_letter **l);
-void			letter_F(t_letter **l);
-void			letter_G(t_letter **l);
-void			letter_H(t_letter **l);
-void			letter_I(t_letter **l);
-void			letter_J(t_letter **l);
-void			letter_K(t_letter **l);
-void			letter_L(t_letter **l);
-void			letter_M(t_letter **l);
-void			letter_N(t_letter **l);
-void			letter_O(t_letter **l);
-void			letter_P(t_letter **l);
-void			letter_Q(t_letter **l);
-void			letter_R(t_letter **l);
-void			letter_S(t_letter **l);
-void			letter_T(t_letter **l);
-void			letter_U(t_letter **l);
-void			letter_V(t_letter **l);
-void			letter_W(t_letter **l);
-void			letter_X(t_letter **l);
-void			letter_Y(t_letter **l);
-void			letter_Z(t_letter **l);
+void			letter_cap_a(t_letter **l);
+void			letter_cap_b(t_letter **l);
+void			letter_cap_c(t_letter **l);
+void			letter_cap_d(t_letter **l);
+void			letter_cap_e(t_letter **l);
+void			letter_cap_f(t_letter **l);
+void			letter_cap_g(t_letter **l);
+void			letter_cap_h(t_letter **l);
+void			letter_cap_i(t_letter **l);
+void			letter_cap_j(t_letter **l);
+void			letter_cap_k(t_letter **l);
+void			letter_cap_l(t_letter **l);
+void			letter_cap_m(t_letter **l);
+void			letter_cap_n(t_letter **l);
+void			letter_cap_o(t_letter **l);
+void			letter_cap_p(t_letter **l);
+void			letter_cap_q(t_letter **l);
+void			letter_cap_r(t_letter **l);
+void			letter_cap_s(t_letter **l);
+void			letter_cap_t(t_letter **l);
+void			letter_cap_u(t_letter **l);
+void			letter_cap_v(t_letter **l);
+void			letter_cap_w(t_letter **l);
+void			letter_cap_x(t_letter **l);
+void			letter_cap_y(t_letter **l);
+void			letter_cap_z(t_letter **l);
 void			letter_a(t_letter **l);
 void			letter_b(t_letter **l);
 void			letter_c(t_letter **l);
